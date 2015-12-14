@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      html, body, #map {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
+
+<head>
+  <style>
+    html,
+    body,
+    #map {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script>
     var map;
 
 function initialize() {
@@ -22,10 +25,10 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 
-  // Create a <script> tag and set the USGS URL as the source.
+  // Create a <script> tag and use a local GeoJSON file. I used geojson.io.
   var script = document.createElement('script');
 
-  script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+  script.src = '';
   document.getElementsByTagName('head')[0].appendChild(script);
 
   map.data.setStyle(function(feature) {
@@ -53,10 +56,11 @@ function eqfeed_callback(results) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
   </script>
-  </head>
-  <body>
-    <div id="map"></div>
-  </body>
+</head>
+
+<body>
+  <div id="map"></div>
+</body>
+
 </html>
