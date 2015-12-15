@@ -17,7 +17,7 @@
 
 function initialize() {
   var mapOptions = {
-    zoom: 10,
+    zoom: 13,
     center: {lat: 40.1321, lng: -88.2949},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -32,7 +32,7 @@ function initialize() {
   document.getElementsByTagName('head')[0].appendChild(script);
 
   map.data.setStyle(function(feature) {
-    var magnitude = feature.getProperty('mag');
+    var magnitude = feature.getProperty('eaters');
     return {
       icon: getCircle(magnitude)
     };
@@ -61,6 +61,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <body>
   <div id="map"></div>
+    <h2>hi</h2>
 </body>
 
 </html>
